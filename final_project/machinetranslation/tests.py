@@ -7,7 +7,7 @@ class TestTranslator(unittest.TestCase):
         '''
         this function tests the englishToFrench function with null values, and common eng-french translation
         '''
-        self.assertEqual(english_to_french(' '), ' ')
+        self.assertIsNone(english_to_french(''))
     
     def test_englishToFrench_for_translation(self):
         '''
@@ -22,9 +22,9 @@ class TestTranslator(unittest.TestCase):
         '''
         this function tests the frenchToEnglish function with null values
         '''
-        self.assertEqual(french_to_english(' '), ' ')
+        self.assertIsNone(french_to_english(''))
 
-    def test_frenchTOEnglish_for_translation(self):
+    def test_frenchToEnglish_for_translation(self):
         '''
         this function tests the frenchToEnglish function for common french-eng translation
         '''

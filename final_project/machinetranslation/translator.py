@@ -25,11 +25,16 @@ def english_to_french(english_text):
     '''
     translates english text to french
     '''
-    response = language_translator.translate(
-    text = english_text,
-    model_id = 'en-fr').get_result()
+    if len(english_text) != 0:
+        response = language_translator.translate(
+        text = english_text,
+        model_id = 'en-fr').get_result()
+        
+        french_text = response['translations'][0]['translation']
+    
+    else:
+        french_text = None
 
-    french_text = response['translations'][0]['translation']
     return french_text
 
 
@@ -37,12 +42,14 @@ def french_to_english(french_text):
     '''
     translates french text to english
     '''
-    response = language_translator.translate(
-    text = french_text,
-    model_id = 'fr-en').get_result()
+    if len(french_text) != 0:
+        response = language_translator.translate(
+        text = french_text,
+        model_id = 'fr-en').get_result()
 
-    english_text = response['translations'][0]['translation']
+        english_text = response['translations'][0]['translation']
+    
+    else:
+        english_text = None
+
     return english_text
-
-
-print(french_to_english('parte'))
